@@ -5,21 +5,15 @@ import AdventureItem from './AdventureItem.js';
 
 const html = htm.bind(h);
 
-export async function performQuery(swapiQuery, swapiVariables) {
+export async function performQuery() {
   const headers = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
   };
 
-  return fetch('https://author-p117303-e1145208.adobeaemcloud.com/content/graphql/global/endpoint.json', {
-    method: 'POST',
-    headers,
-    body: swapiVariables ? JSON.stringify({
-      query: swapiQuery,
-      variables: swapiVariables,
-    }) : JSON.stringify({
-      query: swapiQuery,
-    }),
+  return fetch('https://author-p117303-e1145208.adobeaemcloud.com/graphql/execute.json/wknd/adventures-all', {
+    method: 'GET',
+    headers
   }).then((response) => {
     if (!response.ok) {
       return null;
@@ -28,8 +22,8 @@ export async function performQuery(swapiQuery, swapiVariables) {
   }).then((data) => data);
 }
 
-export async function getFilms() {
-  return performSwapiQuery(filmsGraphqlQuery).then((filmsData) => {
+export async function getAdventures() {
+  return performQuery().then((filmsData) => {
     if (!filmsData?.data?.allFilms?.films) {
       return null;
     }
