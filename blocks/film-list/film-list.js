@@ -1,25 +1,8 @@
 import { getConfigValue } from '../../scripts/configs.js';
+import filmsGraphql from '../../tools/queries/films.graphql.js';
 
 export default async function decorate(block) {
   block.textContent = '';
-  const query = 'query Query {\n'
-      + '  allFilms {\n'
-      + '    films {\n'
-      + '      title\n'
-      + '      director\n'
-      + '      releaseDate\n'
-      + '      speciesConnection {\n'
-      + '        species {\n'
-      + '          name\n'
-      + '          classification\n'
-      + '          homeworld {\n'
-      + '            name\n'
-      + '          }\n'
-      + '        }\n'
-      + '      }\n'
-      + '    }\n'
-      + '  }\n'
-      + '}';
   const swapiDetails = {
     swapiEndPoint: await getConfigValue('swapi-endpoint'),
   };
@@ -30,7 +13,7 @@ export default async function decorate(block) {
       Accept: 'application/json',
     },
     body: JSON.stringify({
-      query,
+      filmsGraphql,
     }),
   })
     .then((r) => r.json())
