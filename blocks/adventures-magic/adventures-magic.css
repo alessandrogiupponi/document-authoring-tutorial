@@ -1,0 +1,48 @@
+.adventures-magic {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(278px, 1fr));
+    grid-gap: 16px;
+}
+
+.adventures-magic .cmp-image-list {
+    margin: 16px;
+    display: inline-grid;
+}
+
+.adventures-magic .adventure-item-image {
+    border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 5/4;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+}
+
+.adventures-magic .adventure-item-title {
+    margin-bottom: 5px;
+    text-transform: capitalize;
+    font-weight: 500;
+    line-height:41px;
+    margin-top: 5px;
+    font-size: larger;
+}
+
+.adventures-magic .adventure-item-price {
+    background-color: black;
+    opacity: 50%;
+    color: white;
+    text-align: center;
+    border-radius: 35px;
+    padding: 0 20px 0 20px;
+    display: inline-flex;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.adventures-magic .adventure-image-card {
+    position: relative;
+    text-align: center;
+}
