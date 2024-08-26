@@ -8,6 +8,7 @@ const html = htm.bind(h);
 export async function performQuery() {
   const headers = {
     Authorization: `Basic ${btoa('admin:admin')}`,
+    credentials: 'include',
   };
   return fetch('https://author-p117303-e1145208.adobeaemcloud.com/graphql/execute.json/wknd/adventures-all', {
   // return fetch('https://localhost:8443/graphql/execute.json/wknd/adventures-all', {
